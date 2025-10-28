@@ -1,0 +1,75 @@
+<!-- end list -->
+{
+    "folders": [
+        // ...
+    ],
+    "settings": {
+
+        // --- TODO Highlight の設定ここから ---
+
+        // 1. 認識させたいキーワード（タグ）を定義します
+        // これで @awaiting や @due を認識させます
+        "todohighlight.keywords": [
+            // ステータス（回答待ち）
+            {
+                "text": "@awaiting",
+                "color": "#fff",
+                "backgroundColor": "#FF8C00", // オレンジ
+                "overviewRulerColor": "orange"
+            },
+            // ステータス（実行中）
+            {
+                "text": "@doing",
+                "color": "#fff",
+                "backgroundColor": "#32CD32", // 緑
+                "overviewRulerColor": "green"
+            },
+            // 期限（これが一番重要！）
+            {
+                "text": "@due",
+                "color": "#fff",
+                "backgroundColor": "#DC143C", // 濃い赤
+                "overviewRulerColor": "red",
+                "isCaseSensitive": false
+            },
+            // 担当者
+            {
+                "text": "@assignee",
+                "color": "#000",
+                "backgroundColor": "#00BFFF", // 水色
+                "isCaseSensitive": false
+            },
+            // 従来のTODO
+            {
+                "text": "TODO:",
+                "color": "#fff",
+                "backgroundColor": "#ffab00",
+                "overviewRulerColor": "rgba(255,171,0,0.7)"
+            }
+        ],
+
+        // 2. 行のどこにタグがあっても認識させる設定
+        // (キーワードの後にカッコがあってもOK)
+        "todohighlight.keywordsPattern": "($TAGS)(\\(.*?\\))?",
+
+        // 3. 議事録(.md)やテキスト(.txt)をスキャン対象に含めます
+        "todohighlight.include": [
+            "**/*.js",
+            "**/*.ts",
+            "**/*.py",
+            "**/*.md",
+            "**/*.txt"
+            // 他に必要なファイル形式があれば追加
+        ],
+
+        // 4. 除外するフォルダ（Todo Treeと同じ）
+        "todohighlight.exclude": [
+            "**/node_modules/**",
+            "**/bower_components/**",
+            "**/.git/**",
+            "**/.*" // 隠しファイル
+        ]
+        
+        // --- TODO Highlight の設定ここまで ---
+    }
+}
