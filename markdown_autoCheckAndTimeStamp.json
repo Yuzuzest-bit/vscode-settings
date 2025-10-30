@@ -1,0 +1,22 @@
+{
+	"key":"ctrl+l",
+	"command" : "runCommands",
+	"args": {
+		"commands": [
+			// 1. チェックリストの状態をトグルする
+			// (ユーザーが指定したコマンドID)
+			"makdown.extention.checkTaskList",
+			// 2. カーソルを行末へ移動する
+			"cursorEnd",
+			// 3. タイムスタンプをスニペットとして挿入する
+			{
+				"command": "editor.action.insertSnippet",
+				"args": {
+					// 挿入する形式 (先頭にスペース + yyyy-mm-ddThh:mm)
+					"snippet": " ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}"
+				}
+			}
+		]
+	},
+	"when":"editorTextFocus && editorLangID =~ /^markdown$|^rmd$|^quartos$/"
+}
