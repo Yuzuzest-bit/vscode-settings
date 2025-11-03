@@ -1,0 +1,169 @@
+  "window.zoomLevel": 1,
+  "macros": {
+    "toggleCheckBox": [
+      "editor.action.selectLine",
+      "editor.action.clipboardCutAction",
+      {
+        "command": "editor.action.insertSnippet",
+        "args": {
+          "snippet": "$1"
+        }
+      },
+      {
+        "command": "editor.action.replaceInSelection",
+        "args": {
+          "find": "- [ ]",
+          "replace": "- [x]"
+        }
+      }
+    ],
+    "removeLineAndRevert": [
+      {
+        "command": "command-runner.run",
+        "args": {
+          "command": "remove_line:current-file"
+        }
+      },
+      "workbench.action.files.revert"
+    ],
+  },
+  "explorer.confirmDelete": false,
+  "python.createEnvironment.trigger": "off",
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  // ... (あなたの他の設定はそのまま) ...
+  // 1. VS Code標準の保存時フォーマットを「有効」にする
+  // (これはグローバル設定なので、おそらく既に "true" になっているはずです)
+  "editor.formatOnSave": false,
+  // 2. (重要) 「Markdown Table」拡張機能の「独自」保存時フォーマットを「無効」にする
+  // 既存の設定はそのままにして…
+  // グローバルでは今まで通りでいいなら true のままでもOK
+  "files.trimTrailingWhitespace": false,
+
+  // ← Markdown のときだけ「行末の空白を消さない」
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.formatOnSave": false
+  },
+
+  // Markdown Table が保存時に動くように
+  "markdown.extension.tableFormatter.enabled": false,
+
+  "liveServer.settings.CustomBrowser": "chrome",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "workbench.startupEditor": "none",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "todo-tree.general.tags": [
+    "@progress",
+    "@focus",
+    "@hold",
+    "@awaiting",
+    "@later",
+    "@option"
+  ],
+  "todo-tree.general.periodicRefreshInterval": 1,
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.highlights.defaultHighlight": {
+      "type": "tag",
+    "foreground": "#ffffff"
+  },
+  "todo-tree.highlights.useColourScheme": false,
+  "todo-tree.highlights.customHighlight": {
+    "@focus": {
+      "icon": "flame",
+      "foreground": "#149603",
+      "rulerColour": "#FF9500"
+    },
+    "@progress": {
+      "icon": "beaker",
+      "foreground": "#41f81d",
+      "rulerColour": "#1aff00"
+    },
+    "@hold": {
+      "icon": "clock",
+      "foreground": "#f60fe6",
+      "rulerColour": "#f60fe6"
+    },
+    "@awaiting": {
+      "icon": "hourglass",
+      "foreground": "#ffbf00",
+      "rulerColour": "#ffbf00"
+    },
+    "@later": {
+      "icon": "calendar",
+      "foreground": "#696c6a",
+      "rulerColour": "#696c6a"
+    },
+    "@option": {
+      "icon": "circle",
+      "foreground": "#1e08c7",
+      "rulerColour": "#1e08c7"
+    }
+  },
+"editor.fontFamily": "'Osaka－等幅', 'Osaka-mono'",
+  "editor.letterSpacing": 0,
+  "editor.fontLigatures": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "markup.italic",
+          "markup.italic.markdown"
+        ],
+        "settings": {
+          "foreground": "#ff98be",
+          "fontStyle": ""
+        }
+      },
+      {
+        "scope": "punctuation.definition.italic.markdown",
+        "settings": {
+          "foreground": "#ff98be",
+          "fontStyle": ""
+        }
+      },
+      {
+        "scope": [
+          "markup.bold",
+          "markup.bold.markdown",
+          "markup.bold markup.italic"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      },
+      {
+            "name": "Markdown Code Fences (All languages)",
+            "scope": [
+                "punctuation.definition.fenced.markdown", // ``` の部分
+                "fenced_code.block.language.markdown"     // python, js などの言語名部分
+            ],
+            "settings": {
+                "foreground": "#f0fdb5", // お好みの色
+                // "fontStyle": "italic"
+            }
+        }   
+    ]
+  },
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "emphasis": {
+        "italic": false,
+        "bold": false
+      },
+      "strong": {
+        "italic": false,
+        "bold": false
+      }
+    }
+  },
