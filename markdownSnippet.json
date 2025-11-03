@@ -1,0 +1,135 @@
+{  // 親ノート名（拡張子なし）をその場に挿入
+  "Insert file base name": {
+    "prefix": "fn",                        // fn + ⌘Space → Enter
+    "body": ["${TM_FILENAME_BASE}"],
+    "description": "挿入: 今のファイル名（拡張子なし）"
+  },
+
+  "Make wiki link from selection": {
+    "prefix": "mklink-md",
+    "body": [
+      "[[${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}_${TM_SELECTED_TEXT}]]"
+    ],
+    "description": "選択テキストを今日付のwikilinkにする"
+  },
+	"Status line (Todo Tree)": {
+  "prefix": "st",
+  "body": [
+    "@${1|progress,focus,hold,awaiting,later,option|} due:${2:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}} ${TM_FILENAME_BASE} [[${3:親ノート名}]]"
+  ],
+  "description": "文頭タグ行を差し替える用（Todo Tree検出用）"
+},
+"Task front matter (mini)": {
+  "prefix": "tskf",
+  "body": [
+    "---",
+    "id: ${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DATE}-${TM_FILENAME_BASE}",
+    "parent: [[${1:親ノート名(例:2025-11-02)}]]",
+    "tags: [${2:zk-fleeting}]",
+    "due: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+    "---",
+    "@progress due:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${TM_FILENAME_BASE} [[$1]]",
+    "# ${TM_FILENAME_BASE}",
+    "parent: [[$1]]"
+  ],
+  "description": "FMはメタだけ。実ステータスは行頭で管理"
+},
+"task_fromat_journal (mini)": {
+  "prefix": "tskf_journal",
+  "body": [
+    "---",
+    "id: ${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DATE}-${TM_FILENAME_BASE}",
+    "parent: [[${1:親ノート名(例:2025-11-02)}]]",
+    "tags: [${2:journal}]",
+    "due: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+    "---",
+    "@progress due:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${TM_FILENAME_BASE} [[$1]]",
+    "# ${TM_FILENAME_BASE}",
+    "parent: [[$1]]"
+  ],
+  "description": "FMはメタだけ。実ステータスは行頭で管理"
+},
+"task_fromat_Zettelkasten": {
+  "prefix": "tskf_vscode_タスク管理方法",
+  "body": [
+    "---",
+    "id: ${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DATE}-${TM_FILENAME_BASE}",
+    "parent: [[${1:親ノート名(例:2025-11-02)}]]",
+    "tags: [${2:vscode, タスク管理方法}]",
+    "due: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+    "---",
+    "@progress due:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${TM_FILENAME_BASE} [[$1]]",
+    "# ${TM_FILENAME_BASE}",
+    "parent: [[$1]]"
+  ],
+},
+
+// 1発で“タスク行＋次行のメモ行”を入れる版（progress）
+"Task line (progress)": {
+  "prefix": "tp",
+  "body": [
+    "@progress due:${1:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}} ${2:${TM_FILENAME_BASE}} [[${3:親ノート名}]]",
+    "- "
+  ],
+  "description": "行頭タグ行＋次行に箇条書きの素（progress）"
+},
+"Task line (focus)": {
+  "prefix": "focus",
+  "body": [
+    "@focus",
+  ],
+},
+"Task line (hold)": {
+  "prefix": "hold",
+  "body": [
+    "@hold due:${1:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}} ${2:${TM_FILENAME_BASE}} [[${3:親ノート名}]]",
+    "- "
+  ],
+  "description": "行頭タグ行＋次行に箇条書きの素（hold）"
+},
+"Task line (awaiting)": {
+  "prefix": "awaiting",
+  "body": [
+    "@awaiting due:${1:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}} ${2:${TM_FILENAME_BASE}} [[${3:親ノート名}]]",
+    "- "
+  ],
+  "description": "行頭タグ行＋次行に箇条書きの素（awaiting）"
+},
+"Task line (later)": {
+  "prefix": "later",
+  "body": [
+    "@later due:${1:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}} ${2:${TM_FILENAME_BASE}} [[${3:親ノート名}]]",
+    "- "
+  ],
+  "description": "行頭タグ行＋次行に箇条書きの素（later）"
+},
+"Task line (option)": {
+  "prefix": "option",
+  "body": [
+    "@option due:${1:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}} ${2:${TM_FILENAME_BASE}} [[${3:親ノート名}]]",
+    "- "
+  ],
+  "description": "行頭タグ行＋次行に箇条書きの素（option）"
+},
+  "Tag_NWSP_過去問": {
+    "prefix": "tag_kako_nwsp",
+    "body": [
+      "過去問, NWSP, "
+    ],
+    "description": "Front Matterは索引用、Todo Tree用の文頭タグ行を本文で重複配置"
+  },
+  "Tag_NWSP_基礎知識": {
+    "prefix": "tag_kiso_nwsp",
+    "body": [
+      "基礎知識, NWSP, "
+    ],
+    "description": "Front Matterは索引用、Todo Tree用の文頭タグ行を本文で重複配置"
+  },
+  "mac操作関連": {
+    "prefix": "tag_mac",
+    "body": [
+      "mac操作関連, "
+    ],
+    "description": "Front Matterは索引用、Todo Tree用の文頭タグ行を本文で重複配置"
+  },  
+}
